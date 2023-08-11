@@ -9,15 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cat-nest-core</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.28</version>
-        </dependency>
-    </dependencies>
+    <artifactId>cat-nest-api</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

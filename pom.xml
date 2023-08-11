@@ -10,6 +10,12 @@
     <packaging>pom</packaging>
     <modules>
         <module>cat-nest-core</module>
+        <module>cat-nest-api</module>
+        <module>cat-nest-gateway</module>
+        <module>cat-nest-modules</module>
+        <module>cat-nest-modules/cat-nest-file</module>
+        <module>cat-nest-modules/cat-nest-user</module>
+        <module>cat-nest-modules/cat-nest-system</module>
     </modules>
 
     <properties>
@@ -20,14 +26,6 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.28</version>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
