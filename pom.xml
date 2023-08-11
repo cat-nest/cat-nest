@@ -16,12 +16,15 @@
         <module>cat-nest-modules/cat-nest-file</module>
         <module>cat-nest-modules/cat-nest-user</module>
         <module>cat-nest-modules/cat-nest-system</module>
+        <module>cat-nest-common</module>
+        <module>cat-nest-common/cat-nest-common-datasource</module>
     </modules>
 
     <properties>
         <spring-boot.version>2.7.13</spring-boot.version>
         <spring-cloud.version>2021.0.8</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <mysql.version>8.0.31</mysql.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,6 +58,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- mysql            -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
