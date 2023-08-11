@@ -11,6 +11,13 @@
 
     <artifactId>cat-nest-common</artifactId>
 
+    <modules>
+        <module>cat-nest-common-datasource</module>
+        <module>cat-nest-common-redis</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
