@@ -13,7 +13,7 @@ public class FileController {
     @Qualifier("aliOssFileServiceImpl")
     private IFileService fileService;
 
-    @GetMapping("/uploan")
+    @GetMapping("/upload")
     public String upload() {
         return fileService.uploadFile(null);
     }

@@ -1,5 +1,6 @@
-package com.catnest.filter;
+package com.catnest.gateway.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -14,6 +15,7 @@ import java.util.Locale;
 import java.util.UUID;
 
 @Component
+@Slf4j
 public class TraceFilter implements GlobalFilter {
 
     private static final String TRACE_ID = "traceId";
@@ -30,6 +32,8 @@ public class TraceFilter implements GlobalFilter {
             traceId = UUID.randomUUID().toString().replace("-", "").toUpperCase(Locale.ROOT);
         }
         MDC.put(TRACE_ID, traceId);
+
+        log.info("gateway收到请求：{}, traceId:{}", request.getURI(), traceId);
 
         mutate.header(TRACE_ID, traceId);
 
