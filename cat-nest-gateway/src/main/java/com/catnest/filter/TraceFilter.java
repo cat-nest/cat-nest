@@ -1,4 +1,4 @@
-package com.catnesst.filter;
+package com.catnest.filter;
 
 import org.slf4j.MDC;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -10,9 +10,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 import java.util.UUID;
 
 @Component

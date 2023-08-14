@@ -1,13 +1,11 @@
-package com.catnesst.gateway;
+package com.catnest.file;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GatwayContrller {
-
+public class CatNestFileController {
     public static void main(String[] args) {
-        SpringApplication.run(GatwayContrller.class, args);
+        SpringApplication.run(CatNestFileController.class, args);
     }
-
 }
