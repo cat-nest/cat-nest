@@ -8,3 +8,7 @@ spring:
           uri: http://localhost:8083
           predicates:
             - Path=/file/**
+        - id: system
+          uri: http://localhost:8081
+          predicates:
+            - Path=/system/**

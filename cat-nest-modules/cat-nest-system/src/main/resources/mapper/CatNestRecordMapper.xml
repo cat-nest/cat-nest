@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catnest.system.mapper.CatNestRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.catnest.system.domain.CatNestRecord">
+            <id property="nestId" column="nest_id" jdbcType="INTEGER"/>
+            <result property="nestName" column="nest_name" jdbcType="VARCHAR"/>
+            <result property="nestDesc" column="nest_desc" jdbcType="VARCHAR"/>
+            <result property="nestType" column="nest_type" jdbcType="VARCHAR"/>
+            <result property="nestSts" column="nest_sts" jdbcType="INTEGER"/>
+            <result property="createUseId" column="create_use_id" jdbcType="INTEGER"/>
+            <result property="createDt" column="create_dt" jdbcType="TIMESTAMP"/>
+            <result property="updateDt" column="update_dt" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        nest_id,nest_name,nest_desc,
+        nest_type,nest_sts,create_use_id,
+        create_dt,update_dt
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from cat_nest_record
+        where  nest_id = #{nestId,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from cat_nest_record
+        where  nest_id = #{nestId,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="nest_id" keyProperty="nestId" parameterType="com.catnest.system.domain.CatNestRecord" useGeneratedKeys="true">
+        insert into cat_nest_record
+        ( nest_id,nest_name,nest_desc
+        ,nest_type,nest_sts,create_use_id
+        ,create_dt,update_dt)
+        values (#{nestId,jdbcType=INTEGER},#{nestName,jdbcType=VARCHAR},#{nestDesc,jdbcType=VARCHAR}
+        ,#{nestType,jdbcType=VARCHAR},#{nestSts,jdbcType=INTEGER},#{createUseId,jdbcType=INTEGER}
+        ,#{createDt,jdbcType=TIMESTAMP},#{updateDt,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="nest_id" keyProperty="nestId" parameterType="com.catnest.system.domain.CatNestRecord" useGeneratedKeys="true">
+        insert into cat_nest_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="nestId != null">nest_id,</if>
+                <if test="nestName != null">nest_name,</if>
+                <if test="nestDesc != null">nest_desc,</if>
+                <if test="nestType != null">nest_type,</if>
+                <if test="nestSts != null">nest_sts,</if>
+                <if test="createUseId != null">create_use_id,</if>
+                <if test="createDt != null">create_dt,</if>
+                <if test="updateDt != null">update_dt,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="nestId != null">#{nestId,jdbcType=INTEGER},</if>
+                <if test="nestName != null">#{nestName,jdbcType=VARCHAR},</if>
+                <if test="nestDesc != null">#{nestDesc,jdbcType=VARCHAR},</if>
+                <if test="nestType != null">#{nestType,jdbcType=VARCHAR},</if>
+                <if test="nestSts != null">#{nestSts,jdbcType=INTEGER},</if>
+                <if test="createUseId != null">#{createUseId,jdbcType=INTEGER},</if>
+                <if test="createDt != null">#{createDt,jdbcType=TIMESTAMP},</if>
+                <if test="updateDt != null">#{updateDt,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.catnest.system.domain.CatNestRecord">
+        update cat_nest_record
+        <set>
+                <if test="nestName != null">
+                    nest_name = #{nestName,jdbcType=VARCHAR},
+                </if>
+                <if test="nestDesc != null">
+                    nest_desc = #{nestDesc,jdbcType=VARCHAR},
+                </if>
+                <if test="nestType != null">
+                    nest_type = #{nestType,jdbcType=VARCHAR},
+                </if>
+                <if test="nestSts != null">
+                    nest_sts = #{nestSts,jdbcType=INTEGER},
+                </if>
+                <if test="createUseId != null">
+                    create_use_id = #{createUseId,jdbcType=INTEGER},
+                </if>
+                <if test="createDt != null">
+                    create_dt = #{createDt,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updateDt != null">
+                    update_dt = #{updateDt,jdbcType=TIMESTAMP},
+                </if>
+        </set>
+        where   nest_id = #{nestId,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.catnest.system.domain.CatNestRecord">
+        update cat_nest_record
+        set 
+            nest_name =  #{nestName,jdbcType=VARCHAR},
+            nest_desc =  #{nestDesc,jdbcType=VARCHAR},
+            nest_type =  #{nestType,jdbcType=VARCHAR},
+            nest_sts =  #{nestSts,jdbcType=INTEGER},
+            create_use_id =  #{createUseId,jdbcType=INTEGER},
+            create_dt =  #{createDt,jdbcType=TIMESTAMP},
+            update_dt =  #{updateDt,jdbcType=TIMESTAMP}
+        where   nest_id = #{nestId,jdbcType=INTEGER} 
+    </update>
+</mapper>

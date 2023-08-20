@@ -12,6 +12,11 @@
     <artifactId>cat-nest-system</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.catnest</groupId>
+            <artifactId>cat-nest-common-datasource</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
