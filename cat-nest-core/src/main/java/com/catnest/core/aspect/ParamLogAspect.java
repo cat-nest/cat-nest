@@ -33,7 +33,7 @@ public class ParamLogAspect {
         Object[] args = proceedingJoinPoint.getArgs();
         String name = signature.getName();
         Map<String, Object> params = CollectionUtil.mergeCollection(parameterNames, args);
-        log.info("===method:{} ==入参数:{}", name, params);
+        log.info("===method:{} ==入参:{}", name, params);
 
         return proceedingJoinPoint.proceed();
     }

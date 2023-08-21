@@ -2,13 +2,12 @@ package com.catnest.system.controller;
 
 import com.catnest.core.domain.ApiResponse;
 import com.catnest.system.domain.CatNestRecord;
+import com.catnest.system.domain.dto.JoinDTO;
 import com.catnest.system.serivce.CatNestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import sun.misc.JavaObjectInputStreamAccess;
 
 @RestController
 @RequestMapping("/catnest")
@@ -37,8 +36,11 @@ public class CatNestController {
             log.error("保存猫窝异常", e);
             return ApiResponse.doFail(e.getMessage());
         }
+    }
 
-
+    @PostMapping("/join")
+    public ApiResponse<String> join(@RequestBody JoinDTO joinDTO) {
+        return catNestService.join(joinDTO);
     }
 
 }

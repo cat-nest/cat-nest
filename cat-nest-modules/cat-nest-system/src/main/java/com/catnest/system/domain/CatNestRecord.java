@@ -31,6 +31,16 @@ public class CatNestRecord implements Serializable {
     private String nestType;
 
     /**
+     * 是否 锁
+     */
+    private Boolean lockStatus;
+
+    /**
+     * 进入密码
+     */
+    private String lockPassword;
+
+    /**
      * 猫窝状态 默认0
      */
     private Integer nestSts;
