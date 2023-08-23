@@ -20,11 +20,11 @@ public class ApiResponse<T> implements Serializable {
     public T data;
 
 
-    public static ApiResponse doFail(String message) {
+    public static <T> ApiResponse<T> doFail(String message) {
         return new ApiResponse<>(BaseConstant.FAIL, false, message, null);
     }
 
-    public static ApiResponse doFail(int code, String message) {
+    public static <T> ApiResponse<T> doFail(int code, String message) {
         return new ApiResponse<>(code, false, message, null);
     }
 
