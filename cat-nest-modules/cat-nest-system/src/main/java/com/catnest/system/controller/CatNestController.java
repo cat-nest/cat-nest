@@ -3,8 +3,10 @@ package com.catnest.system.controller;
 import com.catnest.core.domain.ApiResponse;
 import com.catnest.system.domain.CatNestRecord;
 import com.catnest.system.domain.dto.JoinDTO;
+import com.catnest.system.domain.vo.CatNestVo;
 import com.catnest.system.serivce.CatNestService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sun.misc.JavaObjectInputStreamAccess;
@@ -24,8 +26,12 @@ public class CatNestController {
     }
 
     @PostMapping("/save")
-    public ApiResponse<Long> save() {
+    public ApiResponse<Long> save(@RequestBody CatNestVo catNestVo) {
+
         CatNestRecord catNestRecord = new CatNestRecord();
+
+        BeanUtils.copyProperties(catNestVo, catNestRecord);
+
         catNestRecord.setNestName("测试名字");
         catNestRecord.setNestDesc("这是是测试用的简介");
         catNestRecord.setCreateUseId(2);
