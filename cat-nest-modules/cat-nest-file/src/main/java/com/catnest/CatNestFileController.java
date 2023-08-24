@@ -1,14 +1,11 @@
-package com.catnest.user;
-
+package com.catnest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CatNestUserApplication {
-
+public class CatNestFileController {
     public static void main(String[] args) {
-        SpringApplication.run(CatNestUserApplication.class, args);
+        SpringApplication.run(CatNestFileController.class, args);
     }
-
 }
