@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>cat-nest-core</module>
         <module>cat-nest-api</module>
         <module>cat-nest-gateway</module>
         <module>cat-nest-modules</module>
@@ -18,6 +17,7 @@
         <module>cat-nest-modules/cat-nest-system</module>
         <module>cat-nest-common</module>
         <module>cat-nest-common/cat-nest-common-datasource</module>
+        <module>cat-nest-spring-starter</module>
     </modules>
 
     <properties>

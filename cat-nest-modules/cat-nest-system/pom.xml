@@ -24,6 +24,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.catnest</groupId>
+            <artifactId>cat-nest-spring-starter</artifactId>
+            <version>1.0</version>
+        </dependency>
+
     </dependencies>
 
 

@@ -1,4 +1,4 @@
-package com.catnest.core.utils;
+package com.catnest.common.core.utils;
 
 
 import java.util.HashMap;

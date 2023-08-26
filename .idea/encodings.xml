@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/cat-nest-api/cat-nest-api-system/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-datasource/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-datasource/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-redis/src/main/java" charset="UTF-8" />
@@ -23,6 +25,8 @@
     <file url="file://$PROJECT_DIR$/cat-nest-modules/cat-nest-user/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-modules/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-modules/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-spring-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-spring-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

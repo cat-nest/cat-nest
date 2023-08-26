@@ -1,6 +1,6 @@
 package com.catnest.system.controller;
 
-import com.catnest.core.domain.ApiResponse;
+import com.catnest.common.core.domain.ApiResponse;
 import com.catnest.system.domain.CatNestRecord;
 import com.catnest.system.domain.dto.JoinDTO;
 import com.catnest.system.domain.vo.CatNestVo;
@@ -9,11 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.JavaObjectInputStreamAccess;
 
+@Slf4j
 @RestController
 @RequestMapping("/catnest")
-@Slf4j
 public class CatNestController {
 
     @Autowired

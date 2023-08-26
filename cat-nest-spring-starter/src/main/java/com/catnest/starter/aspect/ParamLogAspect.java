@@ -1,24 +1,24 @@
-package com.catnest.core.aspect;
+package com.catnest.starter.aspect;
 
 
-import com.catnest.core.utils.CollectionUtil;
+import com.catnest.common.core.utils.CollectionUtil;
+
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 
 
-@Component
 @Aspect
 @Slf4j
 public class ParamLogAspect {
 
-    @Pointcut("@annotation(com.catnest.core.annontation.ParamLog)")
+    @Pointcut("@annotation(com.catnest.starter.annontation.ParamLog)")
     public void pointCut() {
     }
 
@@ -35,4 +35,10 @@ public class ParamLogAspect {
 
         return proceedingJoinPoint.proceed();
     }
+
+    @PostConstruct
+    public void postConstruct() {
+        log.info("== 参数打印切片加载成功 ==");
+    }
+
 }

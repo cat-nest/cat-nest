@@ -1,6 +1,6 @@
-package com.catnest.core.domain;
+package com.catnest.common.core.domain;
 
-import com.catnest.core.constant.BaseConstant;
+import com.catnest.common.core.constant.BaseConstant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

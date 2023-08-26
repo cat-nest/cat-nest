@@ -2,6 +2,7 @@ package com.catnest.starter.config;
 
 
 import com.catnest.starter.SpringContextUtil;
+import com.catnest.starter.aspect.ParamLogAspect;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,10 @@ public class CatNestAutoConfig {
         return new SpringContextUtil();
     }
 
+    @Bean
+    public ParamLogAspect paramLogAspect() {
+        return new ParamLogAspect();
+    }
 
     @PostConstruct
     private void postConstruct() {

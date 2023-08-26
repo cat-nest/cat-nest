@@ -1,4 +1,4 @@
-package com.catnest.core.constant;
+package com.catnest.common.core.constant;
 
 public class BaseConstant {
 

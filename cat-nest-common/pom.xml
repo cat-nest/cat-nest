@@ -14,6 +14,7 @@
     <modules>
         <module>cat-nest-common-datasource</module>
         <module>cat-nest-common-redis</module>
+        <module>cat-nest-common-core</module>
     </modules>
 
     <packaging>pom</packaging>
