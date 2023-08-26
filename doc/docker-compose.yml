@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    container_name: cat-nest-mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+  redis:
+    image: redis
+    container_name: cat-nest-redis
+    ports:
+      - 6379:6379
+
+networks:
+  cat-nest:
