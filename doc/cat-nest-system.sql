@@ -1,7 +1,8 @@
 -- auto-generated definition
 create schema `cat-nest-system` collate utf8mb4_0900_ai_ci;
 
-
+use
+`cat-nest-system`;
 
 create table cat_nest_record
 (
