@@ -14,11 +14,11 @@ import reactor.core.publisher.Mono;
 import java.util.Locale;
 import java.util.UUID;
 
+import static com.catnest.common.core.constant.StrConstant.TRACE_ID;
+
 @Component
 @Slf4j
 public class TraceFilter implements GlobalFilter {
-
-    private static final String TRACE_ID = "traceId";
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

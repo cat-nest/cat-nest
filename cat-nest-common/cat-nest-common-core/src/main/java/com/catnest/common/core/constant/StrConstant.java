@@ -4,8 +4,9 @@ public class StrConstant {
     private StrConstant() {
     }
 
-    public static String SUCCESS = "success";
-    public static String FAIL = "fail";
-    public static String EMPTY = "";
+    public static final String SUCCESS = "success";
+    public static final String FAIL = "fail";
+    public static final String EMPTY = "";
+    public static final String TRACE_ID = "traceId";
 
 }

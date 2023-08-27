@@ -18,7 +18,7 @@ public class TaskConfig {
         taskExecutor.setMaxPoolSize(50);
         taskExecutor.setQueueCapacity(200);
         taskExecutor.setKeepAliveSeconds(60);
-        taskExecutor.setThreadNamePrefix("cat-nest-executor --");
+        taskExecutor.setThreadNamePrefix("cat-nest-executor--");
         taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
         taskExecutor.setAwaitTerminationSeconds(60);
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());

@@ -7,6 +7,9 @@ server:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
 
+logging:
+  config: classpath:log/logback-conf.xml
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
