@@ -1,5 +1,6 @@
 package com.catnest.system.config;
 
+import com.catnest.common.core.logger.MdcTaskDecorator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -21,6 +22,7 @@ public class TaskConfig {
         taskExecutor.setThreadNamePrefix("cat-nest-executor--");
         taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
         taskExecutor.setAwaitTerminationSeconds(60);
+        taskExecutor.setTaskDecorator(new MdcTaskDecorator());
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         taskExecutor.initialize();
         return taskExecutor;
