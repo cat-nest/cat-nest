@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-datasource/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-logger/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-logger/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-redis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-redis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/src/main/java" charset="UTF-8" />

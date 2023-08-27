@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/cat-nest-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-nest-common/cat-nest-common-logger/pom.xml" />
         <option value="$PROJECT_DIR$/cat-nest-core/pom.xml" />
         <option value="$PROJECT_DIR$/cat-nest-user/pom.xml" />
       </set>
