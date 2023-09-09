@@ -5,20 +5,29 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.catnest</groupId>
-        <artifactId>cat-nest</artifactId>
+        <artifactId>cat-nest-common</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cat-nest-common</artifactId>
+    <artifactId>cat-nest-common-secure</artifactId>
 
-    <modules>
-        <module>cat-nest-common-datasource</module>
-        <module>cat-nest-common-redis</module>
-        <module>cat-nest-common-core</module>
-        <module>cat-nest-common-secure</module>
-    </modules>
+    <dependencies>
 
-    <packaging>pom</packaging>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
