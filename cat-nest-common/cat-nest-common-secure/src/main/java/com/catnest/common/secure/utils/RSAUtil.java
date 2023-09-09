@@ -36,6 +36,11 @@ public class RSAUtil {
     private static final int MAX_DECRYPT_BLOCK = 256;
 
 
+    /**
+     * 获取公钥密钥
+     *
+     * @return 公钥密钥对
+     */
     public static KeyPairEntity generaterKey() throws NoSuchAlgorithmException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(KEY_ALGORITHM);
         keyPairGenerator.initialize(KEY_SIZE, new SecureRandom());
