@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  application:
+    name: cat-nest-gateway
   cloud:
     gateway:
       routes:
@@ -12,3 +14,6 @@ spring:
           uri: http://localhost:8081
           predicates:
             - Path=/system/**
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

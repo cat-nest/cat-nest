@@ -1,4 +1,11 @@
 server:
-  port: 8083
+  port: 8084
   servlet:
     context-path: /file
+
+spring:
+  application:
+    name: cat-nest-file
+  cloud:
+    nacos:
+      server-addr: localhost:8848

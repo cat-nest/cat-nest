@@ -11,6 +11,8 @@ logging:
   config: classpath:log/logback-conf.xml
 
 spring:
+  application:
+    name: cat-nest-system
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cat-nest-system
@@ -20,6 +22,9 @@ spring:
     database: 0
     host: localhost
     port: 6379
+  cloud:
+    nacos:
+      server-addr: localhost:8848
 
 
 
