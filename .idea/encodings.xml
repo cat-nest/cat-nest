@@ -3,6 +3,9 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-secure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-common/cat-nest-common-secure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-nest-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cat-nest-modules/cat-nest-file/src/main/java" charset="UTF-8" />

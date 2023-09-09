@@ -1,13 +1,12 @@
 package com.catnest.common.secure.utils;
 
+import com.catnest.common.secure.entity.KeyPairEntity;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
+import java.io.IOException;
+import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
@@ -17,6 +16,14 @@ import java.util.Base64;
 public class RSAUtil {
 
 
+    /**
+     * 密钥长度 于原文长度对应 以及越长速度越慢
+     */
+    private final static int KEY_SIZE = 1024;
+
+    /**
+     * 加密算法
+     */
     public static final String KEY_ALGORITHM = "RSA";
 
     /**
@@ -29,11 +36,33 @@ public class RSAUtil {
     private static final int MAX_DECRYPT_BLOCK = 256;
 
 
+    public static KeyPairEntity generaterKey() throws NoSuchAlgorithmException {
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(KEY_ALGORITHM);
+        keyPairGenerator.initialize(KEY_SIZE, new SecureRandom());
+
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+
+        PrivateKey aPrivate = keyPair.getPrivate();
+
+        PublicKey aPublic = keyPair.getPublic();
+
+        return new KeyPairEntity(encryptBase64(aPrivate.getEncoded()), encryptBase64(aPublic.getEncoded()));
+    }
+
+
+    private static String encryptBase64(byte[] key) {
+        return Base64.getEncoder().encodeToString(key);
+    }
+
+    private static byte[] decryptBase64(String key) throws IOException {
+        return Base64.getDecoder().decode(key);
+    }
+
     /**
      * 获取公钥
      */
-    public static PublicKey getPublicKey(String publicKeyString) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        byte[] publicKeyByte = Base64.getDecoder().decode(publicKeyString);
+    public static PublicKey getPublicKey(String publicKeyString) throws NoSuchAlgorithmException, InvalidKeySpecException, IOException {
+        byte[] publicKeyByte = decryptBase64(publicKeyString);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicKeyByte);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         return keyFactory.generatePublic(keySpec);
@@ -43,8 +72,8 @@ public class RSAUtil {
     /**
      * 获取私钥
      */
-    public static PrivateKey getPrivateKey(String privateKeyString) throws Exception {
-        byte[] privateKeyByte = Base64.getDecoder().decode(privateKeyString);
+    public static PrivateKey getPrivateKey(String privateKeyString) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] privateKeyByte = decryptBase64(privateKeyString);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateKeyByte);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         return keyFactory.generatePrivate(keySpec);
