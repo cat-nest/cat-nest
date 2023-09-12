@@ -28,6 +28,12 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.gitee.yiwyn</groupId>
+            <artifactId>gemini-tools</artifactId>
+            <version>1.0.8</version>
+        </dependency>
+
     </dependencies>
 
     <description>
