@@ -12,7 +12,7 @@ create table cat_nest_record
     nest_desc     varchar(50) null comment '猫窝描述',
     nest_type     varchar(2) default '03' null comment '猫窝类型 0聊天 1文件 03聊天+文件',
     nest_sts      int        default 0           not null comment '猫窝状态 默认0',
-    lock_status   bit comment '锁状态',
+    lock_status   bit        default 0           not null comment '锁状态',
     lock_password varchar(50) comment '锁密码',
     create_use_id int                            not null comment '创建人',
     create_dt     datetime   default (curdate()) not null comment '创建时间',
