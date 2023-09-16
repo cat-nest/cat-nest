@@ -10,7 +10,7 @@
             <result property="nestDesc" column="nest_desc" jdbcType="VARCHAR"/>
             <result property="nestType" column="nest_type" jdbcType="VARCHAR"/>
             <result property="lockStatus" column="lock_status" jdbcType="BIT"/>
-            <result property="lockPassword" column="lock_password" jdbcType="VARCHAR"/>
+            <result property="lockPassword" column="lock_password" jdbcType="VARCHAR" typeHandler="com.catnest.common.datasource.handler.EncryptHandler"/>
             <result property="nestSts" column="nest_sts" jdbcType="INTEGER"/>
             <result property="createUseId" column="create_use_id" jdbcType="INTEGER"/>
             <result property="createDt" column="create_dt" jdbcType="TIMESTAMP"/>
@@ -33,18 +33,18 @@
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from cat_nest_record
-        where  nest_id = #{nestId,jdbcType=INTEGER} 
+        where  nest_id = #{nestId,jdbcType=INTEGER}
     </delete>
     <insert id="insert" keyColumn="nest_id" keyProperty="nestId" parameterType="com.catnest.system.domain.CatNestRecord" useGeneratedKeys="true">
         insert into cat_nest_record
-        ( nest_id,nest_name,nest_desc
-        ,nest_type,lock_status,lock_password
-        ,nest_sts,create_use_id,create_dt
-        ,update_dt)
-        values (#{nestId,jdbcType=INTEGER},#{nestName,jdbcType=VARCHAR},#{nestDesc,jdbcType=VARCHAR}
-        ,#{nestType,jdbcType=VARCHAR},#{lockStatus,jdbcType=BIT},#{lockPassword,jdbcType=VARCHAR}
-        ,#{nestSts,jdbcType=INTEGER},#{createUseId,jdbcType=INTEGER},#{createDt,jdbcType=TIMESTAMP}
-        ,#{updateDt,jdbcType=TIMESTAMP})
+        ( nest_id, nest_name, nest_desc
+        , nest_type, lock_status, lock_password
+        , nest_sts, create_use_id, create_dt
+        , update_dt)
+        values ( #{nestId,jdbcType=INTEGER}, #{nestName,jdbcType=VARCHAR}, #{nestDesc,jdbcType=VARCHAR}
+               , #{nestType,jdbcType=VARCHAR}, #{lockStatus,jdbcType=BIT}, #{lockPassword,jdbcType=VARCHAR}
+               , #{nestSts,jdbcType=INTEGER}, #{createUseId,jdbcType=INTEGER}, #{createDt,jdbcType=TIMESTAMP}
+               , #{updateDt,jdbcType=TIMESTAMP})
     </insert>
     <insert id="insertSelective" keyColumn="nest_id" keyProperty="nestId" parameterType="com.catnest.system.domain.CatNestRecord" useGeneratedKeys="true">
         insert into cat_nest_record
@@ -66,7 +66,7 @@
                 <if test="nestDesc != null">#{nestDesc,jdbcType=VARCHAR},</if>
                 <if test="nestType != null">#{nestType,jdbcType=VARCHAR},</if>
                 <if test="lockStatus != null">#{lockStatus,jdbcType=BIT},</if>
-                <if test="lockPassword != null">#{lockPassword,jdbcType=VARCHAR},</if>
+                <if test="lockPassword != null">#{lockPassword,jdbcType=VARCHAR,typeHandler=com.catnest.common.datasource.handler.EncryptHandler},</if>
                 <if test="nestSts != null">#{nestSts,jdbcType=INTEGER},</if>
                 <if test="createUseId != null">#{createUseId,jdbcType=INTEGER},</if>
                 <if test="createDt != null">#{createDt,jdbcType=TIMESTAMP},</if>
@@ -89,7 +89,7 @@
                     lock_status = #{lockStatus,jdbcType=BIT},
                 </if>
                 <if test="lockPassword != null">
-                    lock_password = #{lockPassword,jdbcType=VARCHAR},
+                    lock_password = #{lockPassword,jdbcType=VARCHAR,typeHandler=com.catnest.common.datasource.handler.EncryptHandler},
                 </if>
                 <if test="nestSts != null">
                     nest_sts = #{nestSts,jdbcType=INTEGER},
@@ -104,11 +104,11 @@
                     update_dt = #{updateDt,jdbcType=TIMESTAMP},
                 </if>
         </set>
-        where   nest_id = #{nestId,jdbcType=INTEGER} 
+        where   nest_id = #{nestId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.catnest.system.domain.CatNestRecord">
         update cat_nest_record
-        set 
+        set
             nest_name =  #{nestName,jdbcType=VARCHAR},
             nest_desc =  #{nestDesc,jdbcType=VARCHAR},
             nest_type =  #{nestType,jdbcType=VARCHAR},
@@ -118,6 +118,6 @@
             create_use_id =  #{createUseId,jdbcType=INTEGER},
             create_dt =  #{createDt,jdbcType=TIMESTAMP},
             update_dt =  #{updateDt,jdbcType=TIMESTAMP}
-        where   nest_id = #{nestId,jdbcType=INTEGER} 
+        where   nest_id = #{nestId,jdbcType=INTEGER}
     </update>
 </mapper>

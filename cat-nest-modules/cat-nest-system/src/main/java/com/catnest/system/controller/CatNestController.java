@@ -33,6 +33,7 @@ public class CatNestController {
 
         catNestRecord.setNestName("测试名字");
         catNestRecord.setNestDesc("这是是测试用的简介");
+        catNestRecord.setLockPassword("123456");
         catNestRecord.setCreateUseId(2);
         try {
             long save = catNestService.save(catNestRecord);

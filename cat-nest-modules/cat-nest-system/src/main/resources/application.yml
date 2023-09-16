@@ -27,4 +27,8 @@ spring:
       server-addr: localhost:8848
 
 
+cat-nest:
+  datasource:
+    securityKey: 1234567habcdefg8
+
 

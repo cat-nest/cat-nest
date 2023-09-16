@@ -27,7 +27,7 @@ public class TraceFilter implements GlobalFilter {
         //获取请求头中的traceId
         String traceId = headers.getFirst(TRACE_ID);
         if (!StringUtils.hasText(traceId)) {
-            traceId = SeqUtil.uuid(true, true);
+            traceId = SeqUtil.uuid();
         }
         MDC.put(TRACE_ID, traceId);
 
