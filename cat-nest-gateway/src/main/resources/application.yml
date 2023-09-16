@@ -7,13 +7,17 @@ spring:
     gateway:
       routes:
         - id: file
-          uri: http://localhost:8083
+          uri: http://localhost:8084
           predicates:
             - Path=/file/**
         - id: system
           uri: http://localhost:8081
           predicates:
             - Path=/system/**
+        - id: admin
+          uri: http://localhost:8083
+          predicates:
+            - Path=/admin/**
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
