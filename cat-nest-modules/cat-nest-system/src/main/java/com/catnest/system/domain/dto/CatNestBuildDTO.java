@@ -1,11 +1,11 @@
-package com.catnest.system.domain.vo;
+package com.catnest.system.domain.dto;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class CatNestVo implements Serializable {
+public class CatNestBuildDTO implements Serializable {
 
     private static final long serialVersionUID = 7225264891321866091L;
 
