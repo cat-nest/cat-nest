@@ -1,4 +1,4 @@
-package com.catnest;
+package com.catnest.system;
 
 
 import org.mybatis.spring.annotation.MapperScan;

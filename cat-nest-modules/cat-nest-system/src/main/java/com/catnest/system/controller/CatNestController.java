@@ -1,11 +1,13 @@
 package com.catnest.system.controller;
 
 import com.catnest.common.core.domain.ApiResponse;
+import com.catnest.common.datasource.handler.EncryptHandler;
 import com.catnest.system.domain.CatNestRecord;
 import com.catnest.system.domain.dto.JoinDTO;
 import com.catnest.system.domain.dto.CatNestBuildDTO;
 import com.catnest.system.domain.vo.CatNestInfoDTO;
 import com.catnest.system.serivce.CatNestService;
+import com.sun.org.apache.regexp.internal.RE;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +62,15 @@ public class CatNestController {
     @PostMapping("/join")
     public ApiResponse<String> join(@RequestBody JoinDTO joinDTO) {
         return catNestService.join(joinDTO);
+    }
+
+    @Autowired
+    private EncryptHandler encryptHandler;
+
+    @GetMapping("/health")
+    public String health() {
+        String securityKey = encryptHandler.securityKey;
+        return securityKey;
     }
 
 }
