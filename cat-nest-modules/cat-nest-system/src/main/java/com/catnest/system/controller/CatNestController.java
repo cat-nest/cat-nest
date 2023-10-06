@@ -69,8 +69,7 @@ public class CatNestController {
 
     @GetMapping("/health")
     public String health() {
-        String securityKey = encryptHandler.securityKey;
-        return securityKey;
+        return "success";
     }
 
 }
