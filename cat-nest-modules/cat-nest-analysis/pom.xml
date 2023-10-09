@@ -5,33 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.catnest</groupId>
-        <artifactId>cat-nest</artifactId>
+        <artifactId>cat-nest-modules</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cat-nest-modules</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>cat-nest-system</module>
-        <module>cat-nest-file</module>
-        <module>cat-nest-user</module>
-        <module>cat-nest-admin</module>
-        <module>cat-nest-analysis</module>
-    </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
+    <artifactId>cat-nest-analysis</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.install.skip>true</maven.install.skip>
     </properties>
 
 </project>

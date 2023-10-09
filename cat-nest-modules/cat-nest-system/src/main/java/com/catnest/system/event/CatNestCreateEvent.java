@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationEvent;
 
 public class CatNestCreateEvent extends ApplicationEvent {
 
+    private static final long serialVersionUID = 4284507796216847666L;
     private final CatNestRecord catNestRecord;
 
     public CatNestCreateEvent(Object source, CatNestRecord catNestRecord) {
