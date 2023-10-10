@@ -29,6 +29,6 @@ spring:
 
 cat-nest:
   datasource:
-    securityKey: 1234567habcdefg8
+    securityKey: 12345678habcdefg
 
 
