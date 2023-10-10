@@ -2,6 +2,7 @@ package com.catnest.starter.config;
 
 
 import com.catnest.starter.SpringContextUtil;
+import com.catnest.starter.aspect.FrequencyAspect;
 import com.catnest.starter.aspect.ParamLogAspect;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
@@ -23,9 +24,14 @@ public class CatNestAutoConfig {
         return new ParamLogAspect();
     }
 
+    @Bean
+    public FrequencyAspect frequencyAspect() {
+        return new FrequencyAspect();
+    }
+
     @PostConstruct
     private void postConstruct() {
-        log.info("== load cat-nest-spring-stater finish! ==");
+        log.info("== LOAD CAT-NEST-SPRING-STATER FINISH! ==");
     }
 
 }
