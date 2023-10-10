@@ -3,6 +3,7 @@ package com.catnest.common.datasource.handler;
 import com.baomidou.mybatisplus.core.toolkit.AES;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -19,14 +20,11 @@ public class EncryptHandler extends BaseTypeHandler<String> {
     public EncryptHandler() {
     }
 
-    public EncryptHandler(String securityKey) {
-        this.securityKey = securityKey;
-    }
-
     /**
      * 加密密钥
      */
-    private String securityKey = "12345678abcdefgh";
+    @Value("${cat-nest.datasource.securityKey}")
+    public String securityKey = "12345678abcdefgh";
 
 
     @Override
