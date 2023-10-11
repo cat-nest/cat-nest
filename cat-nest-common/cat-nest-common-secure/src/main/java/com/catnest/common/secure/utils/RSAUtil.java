@@ -1,7 +1,6 @@
 package com.catnest.common.secure.utils;
 
 import com.catnest.common.secure.entity.KeyPairEntity;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
