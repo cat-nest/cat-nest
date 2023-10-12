@@ -3,11 +3,10 @@ package com.catnest.gateway.config;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
-import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Flux;
 
 
-@Configuration
+//@Configuration
 @Slf4j
 public class CatNestRouteConfig implements RouteDefinitionLocator {
     @Override
