@@ -4,6 +4,7 @@ server:
     context-path: /system
 
 
+
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
 

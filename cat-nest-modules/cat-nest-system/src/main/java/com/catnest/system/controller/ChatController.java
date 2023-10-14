@@ -1,12 +1,15 @@
 package com.catnest.system.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
 
-@RestController
-@RequestMapping("/chat")
+import javax.websocket.OnMessage;
+
 public class ChatController {
 
-
+    @OnMessage
+    public void onMessage(TextMessage message, WebSocketSession session) {
+        System.out.println(message);
+    }
 }
