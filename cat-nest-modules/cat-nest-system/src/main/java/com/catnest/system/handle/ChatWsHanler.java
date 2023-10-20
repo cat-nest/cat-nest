@@ -6,7 +6,7 @@ import org.springframework.web.socket.*;
 
 @Slf4j
 @Component
-public class CatNestWebSocketHandler implements WebSocketHandler {
+public class ChatWsHanler implements WebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
