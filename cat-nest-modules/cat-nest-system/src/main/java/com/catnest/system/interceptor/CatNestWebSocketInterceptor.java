@@ -10,6 +10,7 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 
 import java.util.Map;
 
+
 @Slf4j
 @Component
 public class CatNestWebSocketInterceptor implements HandshakeInterceptor {
