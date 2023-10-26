@@ -1,9 +1,11 @@
 package com.catnest.system.utils;
 
+import com.catnest.system.entity.MessageContext;
+import com.catnest.system.enums.MessageTypeEnum;
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.jcajce.provider.symmetric.SEED;
-import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
+
+import java.util.concurrent.ConcurrentMap;
 
 
 /**
@@ -16,10 +18,30 @@ import org.springframework.web.socket.WebSocketSession;
 public class WsUtils {
 
 
+
+
+    public void dealMessage(MessageContext context) {
+        MessageTypeEnum messageType = context.getMessageType();
+
+        String fromUser = context.getFromUser();
+        String toUser = context.getToUser();
+        String content = context.getContent();
+
+        switch (messageType) {
+            case SINGLE:
+                //单点消息处理
+                break;
+            case BROADCAST:
+                //广播消息处理
+                break;
+        }
+    }
+
     /**
      * 单点消息
      */
-    public <T> void sendMessage(WebSocketSession session, T data) {
+    public <T> void singleMessage(MessageContext context, T data) {
+        String content = context.getContent();
 
 
     }

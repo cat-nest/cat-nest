@@ -1,8 +1,7 @@
 package com.catnest.system.handle;
 
-import com.catnest.system.entity.MessageContent;
+import com.catnest.system.entity.MessageContext;
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.jcajce.provider.symmetric.SEED;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
 
@@ -23,7 +22,7 @@ public class ChatWsHanler implements WebSocketHandler {
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         Object payload = message.getPayload();
         try {
-            MessageContent cast = (MessageContent) payload;
+            MessageContext content = (MessageContext) payload;
         } catch (Exception e) {
             session.sendMessage(new TextMessage("消息解析错误"));
         }

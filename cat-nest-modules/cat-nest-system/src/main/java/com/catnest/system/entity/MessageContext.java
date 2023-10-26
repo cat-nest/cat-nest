@@ -1,5 +1,6 @@
 package com.catnest.system.entity;
 
+import com.catnest.system.enums.MessageTypeEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.io.Serializable;
  * 消息内容实体
  */
 @Data
-public class MessageContent implements Serializable {
+public class MessageContext implements Serializable {
     private static final long serialVersionUID = 8330620555274884217L;
 
     //发送人
@@ -19,9 +20,10 @@ public class MessageContent implements Serializable {
     private String content;
     //发送时间
     private String sendTime;
+    //消息发送类型
+    private MessageTypeEnum messageType;
 
-
-    public MessageContent(String fromUser, String toUser, String content) {
+    public MessageContext(String fromUser, String toUser, String content) {
         this.fromUser = fromUser;
         this.toUser = toUser;
         this.content = content;
