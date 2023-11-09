@@ -22,7 +22,12 @@ public class UserService {
 
 
     public ApiResponse<String> logout() {
-
+        try {
+            StpUtil.checkLogin();
+        } catch (Exception e) {
+            return ApiResponse.doFail("当前未登录");
+        }
+        StpUtil.logout();
         return ApiResponse.doSuccess("注销成功");
     }
 
