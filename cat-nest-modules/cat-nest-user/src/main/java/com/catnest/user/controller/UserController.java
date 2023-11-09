@@ -24,4 +24,9 @@ public class UserController {
         return userService.login(info);
     }
 
+    @PostMapping("/logout")
+    public ApiResponse<String> logout() {
+        return userService.logout();
+    }
+
 }

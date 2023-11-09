@@ -1,7 +1,6 @@
 package com.catnest.user.service;
 
 import cn.dev33.satoken.stp.StpUtil;
-import cn.dev33.satoken.util.SaResult;
 import com.catnest.common.core.domain.ApiResponse;
 import com.catnest.user.domain.vo.LoginVO;
 import org.springframework.stereotype.Service;
@@ -19,6 +18,12 @@ public class UserService {
         }
         return ApiResponse.doFail("登录失败");
 
+    }
+
+
+    public ApiResponse<String> logout() {
+
+        return ApiResponse.doSuccess("注销成功");
     }
 
 
