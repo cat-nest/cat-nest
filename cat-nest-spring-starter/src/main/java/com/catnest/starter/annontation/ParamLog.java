@@ -9,4 +9,14 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParamLog {
 
+    /**
+     * 方法描述
+     */
+    String methodDesc() default "";
+
+    /**
+     * 激活打印返回参数
+     */
+    boolean enableLogRetVal() default false;
+
 }

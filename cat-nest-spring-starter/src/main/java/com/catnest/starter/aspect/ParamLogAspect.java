@@ -3,6 +3,7 @@ package com.catnest.starter.aspect;
 
 import com.catnest.common.core.utils.CollectionUtil;
 
+import com.catnest.starter.annontation.ParamLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -18,22 +19,41 @@ import java.util.Map;
 @Slf4j
 public class ParamLogAspect {
 
-    @Pointcut("@annotation(com.catnest.starter.annontation.ParamLog)")
-    public void pointCut() {
+    @Pointcut("@annotation(paramLog)")
+    public void pointCut(ParamLog paramLog) {
     }
 
 
-    @Around("pointCut()")
-    public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    @Around("pointCut(paramLog)")
+    public Object around(ProceedingJoinPoint proceedingJoinPoint, ParamLog paramLog) throws Throwable {
 
         MethodSignature signature = (MethodSignature) proceedingJoinPoint.getSignature();
-        String[] parameterNames = signature.getParameterNames();
-        Object[] args = proceedingJoinPoint.getArgs();
         String name = signature.getName();
-        Map<String, Object> params = CollectionUtil.mergeCollection(parameterNames, args);
-        log.info("===method:{} ==入参:{}", name, params);
+        boolean enableLogRetVal = false;
+        String methodDesc = "";
 
-        return proceedingJoinPoint.proceed();
+        if (paramLog != null) {
+            enableLogRetVal = paramLog.enableLogRetVal();
+            methodDesc = paramLog.methodDesc();
+        }
+        try {
+            String[] parameterNames = signature.getParameterNames();
+            Object[] args = proceedingJoinPoint.getArgs();
+
+            Map<String, Object> params = CollectionUtil.mergeCollection(parameterNames, args);
+
+            log.info("=== Method:{} === Note:{} === Param:{}", name, methodDesc, params);
+        } catch (Exception e) {
+            log.warn("方法入参打印失败,一场捕获，流程继续", e);
+        }
+
+        Object proceed = proceedingJoinPoint.proceed();
+
+        if (enableLogRetVal) {
+            log.info("=== Method:{} === Note:{} === Result:{}", name, methodDesc, proceed);
+        }
+
+        return proceed;
     }
 
     @PostConstruct
