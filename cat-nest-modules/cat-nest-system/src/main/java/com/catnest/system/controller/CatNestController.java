@@ -49,6 +49,23 @@ public class CatNestController {
         }
     }
 
+    @PostMapping("/modify")
+    public ApiResponse<String> modify(@RequestBody CatNestBuildDTO data) {
+
+        Integer modify;
+        try {
+            modify = catNestService.modify(data);
+        } catch (Exception e) {
+            log.error("修改猫窝异常", e);
+            return ApiResponse.doFail(e.getMessage());
+        }
+        if (modify > 0) {
+            return ApiResponse.doSuccess("修改成功");
+        }
+        return ApiResponse.doFail("修改失败");
+    }
+
+
     @GetMapping("/get")
     public ApiResponse<CatNestInfoVO> get(String id) {
         CatNestInfoVO catNestInfoVO = catNestService.get(id);
