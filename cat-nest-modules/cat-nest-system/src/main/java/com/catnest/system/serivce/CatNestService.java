@@ -9,7 +9,6 @@ import com.catnest.system.domain.dto.JoinDTO;
 import com.catnest.system.domain.vo.CatNestInfoVO;
 import com.catnest.system.event.CatNestCreateEvent;
 import com.catnest.system.mapper.CatNestRecordMapper;
-import org.apache.catalina.valves.rewrite.RewriteCond;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -63,6 +62,8 @@ public class CatNestService {
     }
 
     public List<CatNestInfoVO> list() {
+
+
 
         return null;
     }

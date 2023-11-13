@@ -3,6 +3,7 @@ package com.catnest.user.controller;
 
 import com.catnest.common.core.domain.ApiResponse;
 import com.catnest.user.domain.vo.LoginVO;
+import com.catnest.user.domain.vo.UserInfo;
 import com.catnest.user.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,5 +29,14 @@ public class UserController {
     public ApiResponse<String> logout() {
         return userService.logout();
     }
+
+
+    @PostMapping("/register")
+    public ApiResponse<String> register(@RequestBody UserInfo userInfo) {
+
+        return userService.register(userInfo);
+
+    }
+
 
 }

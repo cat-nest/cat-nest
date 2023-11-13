@@ -8,9 +8,9 @@
         </set>
       </option>
     </inspection_tool>
-    <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ignoreAnonymousInnerClasses" value="false" />
-      <option name="superClassString" value="java.awt.Component" />
+    <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ADDITIONAL_TAGS" value="TableName,description,createDate,Entity" />
     </inspection_tool>
+    <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
 </component>
