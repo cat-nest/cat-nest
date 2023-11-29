@@ -20,6 +20,19 @@ create table cat_nest_record
 );
 
 
+create table cn_dict
+(
+    id          int auto_increment comment '主键'
+        primary key,
+    dic_key     varchar(20) null comment '字典key',
+    dic_desc    varchar(20) null comment '字典内容',
+    enable      bit null comment '启用状态',
+    create_dt   datetime null comment '创建时间',
+    create_user varchar(20) null comment '创建人'
+) comment '系统字典表';
+
+
+
 
 
 
