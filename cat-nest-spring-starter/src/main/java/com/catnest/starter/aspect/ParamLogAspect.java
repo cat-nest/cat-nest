@@ -2,13 +2,11 @@ package com.catnest.starter.aspect;
 
 
 import com.catnest.common.core.utils.CollectionUtil;
-
 import com.catnest.starter.annontation.ParamLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
 import javax.annotation.PostConstruct;
@@ -19,12 +17,8 @@ import java.util.Map;
 @Slf4j
 public class ParamLogAspect {
 
-    @Pointcut("@annotation(paramLog)")
-    public void pointCut(ParamLog paramLog) {
-    }
 
-
-    @Around("pointCut(paramLog)")
+    @Around("@annotation(paramLog)")
     public Object around(ProceedingJoinPoint proceedingJoinPoint, ParamLog paramLog) throws Throwable {
 
         MethodSignature signature = (MethodSignature) proceedingJoinPoint.getSignature();

@@ -4,8 +4,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 频道管理
+ */
 @Slf4j
 @RestController
-@RequestMapping("/comment")
-public class CommentController {
+@RequestMapping("/channel")
+public class ChannelController {
+
+
 }
