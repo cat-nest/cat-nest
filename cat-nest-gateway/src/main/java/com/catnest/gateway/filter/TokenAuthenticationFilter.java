@@ -16,6 +16,8 @@ public class TokenAuthenticationFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String token = AuthenticationUtils.getToken(exchange);
 
+        
+
 
         return null;
     }

@@ -1,5 +1,6 @@
 package com.catnest.gateway.util;
 
+import com.catnest.auth.domain.AuthUser;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
@@ -15,6 +16,8 @@ public class AuthenticationUtils {
         }
         return null;
     }
+
+
 
 
 }
