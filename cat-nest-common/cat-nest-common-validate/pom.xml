@@ -5,21 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.catnest</groupId>
-        <artifactId>cat-nest</artifactId>
+        <artifactId>cat-nest-common</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cat-nest-common</artifactId>
+    <artifactId>cat-nest-common-validate</artifactId>
 
-    <modules>
-        <module>cat-nest-common-datasource</module>
-        <module>cat-nest-common-redis</module>
-        <module>cat-nest-common-core</module>
-        <module>cat-nest-common-secure</module>
-        <module>cat-nest-common-validate</module>
-    </modules>
-
-    <packaging>pom</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

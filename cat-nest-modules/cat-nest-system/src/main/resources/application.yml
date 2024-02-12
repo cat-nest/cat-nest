@@ -15,7 +15,7 @@ spring:
     name: cat-nest-system
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cat-nest-system
+    url: jdbc:mysql://172.21.187.247:3306/cat-nest-system
     username: root
     password: root
   redis:
