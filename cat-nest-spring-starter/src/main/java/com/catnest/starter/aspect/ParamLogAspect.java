@@ -2,12 +2,11 @@ package com.catnest.starter.aspect;
 
 
 import com.catnest.common.core.utils.CollectionUtil;
-
+import com.catnest.starter.annontation.ParamLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
 import javax.annotation.PostConstruct;
@@ -18,22 +17,37 @@ import java.util.Map;
 @Slf4j
 public class ParamLogAspect {
 
-    @Pointcut("@annotation(com.catnest.starter.annontation.ParamLog)")
-    public void pointCut() {
-    }
 
-
-    @Around("pointCut()")
-    public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    @Around("@annotation(paramLog)")
+    public Object around(ProceedingJoinPoint proceedingJoinPoint, ParamLog paramLog) throws Throwable {
 
         MethodSignature signature = (MethodSignature) proceedingJoinPoint.getSignature();
-        String[] parameterNames = signature.getParameterNames();
-        Object[] args = proceedingJoinPoint.getArgs();
         String name = signature.getName();
-        Map<String, Object> params = CollectionUtil.mergeCollection(parameterNames, args);
-        log.info("===method:{} ==入参:{}", name, params);
+        boolean enableLogRetVal = false;
+        String methodDesc = "";
 
-        return proceedingJoinPoint.proceed();
+        if (paramLog != null) {
+            enableLogRetVal = paramLog.enableLogRetVal();
+            methodDesc = paramLog.methodDesc();
+        }
+        try {
+            String[] parameterNames = signature.getParameterNames();
+            Object[] args = proceedingJoinPoint.getArgs();
+
+            Map<String, Object> params = CollectionUtil.mergeCollection(parameterNames, args);
+
+            log.info("=== Method:{} === Note:{} === Param:{}", name, methodDesc, params);
+        } catch (Exception e) {
+            log.warn("方法入参打印失败,一场捕获，流程继续", e);
+        }
+
+        Object proceed = proceedingJoinPoint.proceed();
+
+        if (enableLogRetVal) {
+            log.info("=== Method:{} === Note:{} === Result:{}", name, methodDesc, proceed);
+        }
+
+        return proceed;
     }
 
     @PostConstruct

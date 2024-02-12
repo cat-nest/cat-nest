@@ -5,13 +5,14 @@ import com.catnest.common.datasource.handler.EncryptHandler;
 import com.catnest.system.domain.CatNestRecord;
 import com.catnest.system.domain.dto.CatNestBuildDTO;
 import com.catnest.system.domain.dto.JoinDTO;
-import com.catnest.system.domain.vo.CatNestInfoDTO;
+import com.catnest.system.domain.vo.CatNestInfoVO;
 import com.catnest.system.serivce.CatNestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Slf4j
@@ -23,9 +24,9 @@ public class CatNestController {
     private CatNestService catNestService;
 
     @GetMapping("/list")
-    public ApiResponse<String> list() {
-
-        return ApiResponse.doSuccess(null);
+    public ApiResponse<List<CatNestInfoVO>> list() {
+        List<CatNestInfoVO> result = catNestService.list();
+        return ApiResponse.doSuccess(result);
     }
 
     @PostMapping("/save")
@@ -45,11 +46,28 @@ public class CatNestController {
         }
     }
 
+    @PostMapping("/modify")
+    public ApiResponse<String> modify(@RequestBody CatNestBuildDTO data) {
+
+        Integer modify;
+        try {
+            modify = catNestService.modify(data);
+        } catch (Exception e) {
+            log.error("修改猫窝异常", e);
+            return ApiResponse.doFail(e.getMessage());
+        }
+        if (modify > 0) {
+            return ApiResponse.doSuccess("修改成功");
+        }
+        return ApiResponse.doFail("修改失败");
+    }
+
+
     @GetMapping("/get")
-    public ApiResponse<CatNestInfoDTO> get(String id) {
-        CatNestInfoDTO catNestInfoDTO = catNestService.get(id);
-        if (Objects.nonNull(catNestInfoDTO)) {
-            return ApiResponse.doSuccess(catNestInfoDTO);
+    public ApiResponse<CatNestInfoVO> get(String id) {
+        CatNestInfoVO catNestInfoVO = catNestService.get(id);
+        if (Objects.nonNull(catNestInfoVO)) {
+            return ApiResponse.doSuccess(catNestInfoVO);
         }
         return ApiResponse.doFail("没有找到这个猫窝");
 

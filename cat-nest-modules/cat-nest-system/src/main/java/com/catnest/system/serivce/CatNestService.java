@@ -4,15 +4,17 @@ package com.catnest.system.serivce;
 import com.catnest.common.core.domain.ApiResponse;
 import com.catnest.starter.annontation.ParamLog;
 import com.catnest.system.domain.CatNestRecord;
-import com.catnest.system.domain.dto.JoinDTO;
 import com.catnest.system.domain.dto.CatNestBuildDTO;
-import com.catnest.system.domain.vo.CatNestInfoDTO;
+import com.catnest.system.domain.dto.JoinDTO;
+import com.catnest.system.domain.vo.CatNestInfoVO;
 import com.catnest.system.event.CatNestCreateEvent;
 import com.catnest.system.mapper.CatNestRecordMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CatNestService {
@@ -36,11 +38,11 @@ public class CatNestService {
     }
 
     @ParamLog
-    public CatNestInfoDTO get(String id) {
+    public CatNestInfoVO get(String id) {
         CatNestRecord catNestRecord = catNestRecordMapper.selectByPrimaryKey(Long.parseLong(id));
-       CatNestInfoDTO catNestInfoDTO = new CatNestInfoDTO();
-        BeanUtils.copyProperties(catNestRecord, catNestInfoDTO);
-        return catNestInfoDTO;
+        CatNestInfoVO catNestInfoVO = new CatNestInfoVO();
+        BeanUtils.copyProperties(catNestRecord, catNestInfoVO);
+        return catNestInfoVO;
     }
 
     @ParamLog
@@ -57,5 +59,28 @@ public class CatNestService {
                 return ApiResponse.doSuccess("密码错误");
             }
         }
+    }
+
+    public List<CatNestInfoVO> list() {
+
+
+
+        return null;
+    }
+
+    /**
+     * 信息修改
+     *
+     * @param data 猫窝创建实体
+     * @return
+     */
+    public Integer modify(CatNestBuildDTO data) {
+
+        CatNestRecord catNestRecord = new CatNestRecord();
+
+        BeanUtils.copyProperties(data, catNestRecord);
+
+        return catNestRecordMapper.updateByPrimaryKeySelective(catNestRecord);
+
     }
 }

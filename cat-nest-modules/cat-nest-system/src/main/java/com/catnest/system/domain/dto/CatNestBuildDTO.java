@@ -10,6 +10,10 @@ public class CatNestBuildDTO implements Serializable {
     private static final long serialVersionUID = 7225264891321866091L;
 
     /**
+     * 猫窝id ，创建时为null 更新时为已有值
+     */
+    private Integer nestId;
+    /**
      * 猫窝名字
      */
     private String nestName;

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/comment")
-public class CommentController {
+@RequestMapping("/config")
+public class ConfigController {
+
+
 }

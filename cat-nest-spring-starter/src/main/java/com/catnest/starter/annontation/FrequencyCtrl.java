@@ -5,18 +5,17 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * 频率控制
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ParamLog {
+public @interface FrequencyCtrl {
 
-    /**
-     * 方法描述
-     */
-    String methodDesc() default "";
+    // 限制时间 单位：秒(默认值：一分钟）
+    long period() default 60;
 
-    /**
-     * 激活打印返回参数
-     */
-    boolean enableLogRetVal() default false;
+    // 允许请求的次数(默认值：5次）
+    long count() default 5;
 
 }

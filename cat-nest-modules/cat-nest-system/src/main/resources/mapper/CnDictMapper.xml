@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catnest.system.mapper.CnDictMapper">
+
+    <resultMap id="BaseResultMap" type="com.catnest.system.domain.CnDict">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="dicKey" column="dic_key" jdbcType="VARCHAR"/>
+            <result property="dicDesc" column="dic_desc" jdbcType="VARCHAR"/>
+            <result property="enable" column="enable" jdbcType="BIT"/>
+            <result property="createDt" column="create_dt" jdbcType="TIMESTAMP"/>
+            <result property="createUser" column="create_user" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,dic_key,dic_desc,
+        enable,create_dt,create_user
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from cn_dict
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from cn_dict
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.catnest.system.domain.CnDict" useGeneratedKeys="true">
+        insert into cn_dict
+        ( id,dic_key,dic_desc
+        ,enable,create_dt,create_user
+        )
+        values (#{id,jdbcType=INTEGER},#{dicKey,jdbcType=VARCHAR},#{dicDesc,jdbcType=VARCHAR}
+        ,#{enable,jdbcType=BIT},#{createDt,jdbcType=TIMESTAMP},#{createUser,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.catnest.system.domain.CnDict" useGeneratedKeys="true">
+        insert into cn_dict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="dicKey != null">dic_key,</if>
+                <if test="dicDesc != null">dic_desc,</if>
+                <if test="enable != null">enable,</if>
+                <if test="createDt != null">create_dt,</if>
+                <if test="createUser != null">create_user,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="dicKey != null">#{dicKey,jdbcType=VARCHAR},</if>
+                <if test="dicDesc != null">#{dicDesc,jdbcType=VARCHAR},</if>
+                <if test="enable != null">#{enable,jdbcType=BIT},</if>
+                <if test="createDt != null">#{createDt,jdbcType=TIMESTAMP},</if>
+                <if test="createUser != null">#{createUser,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.catnest.system.domain.CnDict">
+        update cn_dict
+        <set>
+            <if test="dicKey != null">
+                dic_key = #{dicKey,jdbcType=VARCHAR},
+            </if>
+            <if test="dicDesc != null">
+                dic_desc = #{dicDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="enable != null">
+                enable = #{enable,jdbcType=BIT},
+            </if>
+            <if test="createDt != null">
+                create_dt = #{createDt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.catnest.system.domain.CnDict">
+        update cn_dict
+        set 
+            dic_key =  #{dicKey,jdbcType=VARCHAR},
+            dic_desc =  #{dicDesc,jdbcType=VARCHAR},
+            enable =  #{enable,jdbcType=BIT},
+            create_dt =  #{createDt,jdbcType=TIMESTAMP},
+            create_user =  #{createUser,jdbcType=VARCHAR}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+</mapper>
