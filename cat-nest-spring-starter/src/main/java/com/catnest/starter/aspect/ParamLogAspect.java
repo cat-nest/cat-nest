@@ -52,7 +52,7 @@ public class ParamLogAspect {
 
     @PostConstruct
     public void postConstruct() {
-        log.info("== 参数打印切片加载成功 ==");
+        log.info("== LOAN PARAMLOG FINISH ==");
     }
 
 }

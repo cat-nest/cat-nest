@@ -2,6 +2,7 @@ package com.catnest.system.domain.dto;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -16,6 +17,7 @@ public class CatNestBuildDTO implements Serializable {
     /**
      * 猫窝名字
      */
+    @NotNull(message = "猫窝名字")
     private String nestName;
 
     /**
@@ -26,11 +28,13 @@ public class CatNestBuildDTO implements Serializable {
     /**
      * 猫窝类型 0聊天 1文件 03聊天+文件
      */
+    @NotNull(message = "猫窝类型")
     private String nestType;
 
     /**
      * 是否 锁
      */
+    @NotNull(message = "锁定状态")
     private Boolean lockStatus;
 
     /**

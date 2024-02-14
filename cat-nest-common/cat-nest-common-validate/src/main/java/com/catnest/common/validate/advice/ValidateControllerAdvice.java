@@ -28,6 +28,7 @@ public class ValidateControllerAdvice {
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
             errorMesssage.append(fieldError.getDefaultMessage());
         }
+        errorMesssage.append("不能为空");
         return ApiResponse.doFail(errorMesssage.toString());
     }
 
@@ -41,6 +42,7 @@ public class ValidateControllerAdvice {
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
             errorMesssage.append(fieldError.getDefaultMessage());
         }
+        errorMesssage.append("不能为空");
         return ApiResponse.doFail(errorMesssage.toString());
     }
 

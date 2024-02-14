@@ -10,8 +10,10 @@ import com.catnest.system.serivce.CatNestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,7 +32,7 @@ public class CatNestController {
     }
 
     @PostMapping("/save")
-    public ApiResponse<Long> save(@RequestBody CatNestBuildDTO catNestBuildDTO) {
+    public ApiResponse<Long> save(@Valid @RequestBody CatNestBuildDTO catNestBuildDTO) {
 
         CatNestRecord catNestRecord = new CatNestRecord();
 
