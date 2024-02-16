@@ -5,22 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.catnest</groupId>
-        <artifactId>cat-nest</artifactId>
+        <artifactId>cat-nest-common</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cat-nest-common</artifactId>
-
-    <modules>
-        <module>cat-nest-common-datasource</module>
-        <module>cat-nest-common-redis</module>
-        <module>cat-nest-common-core</module>
-        <module>cat-nest-common-secure</module>
-        <module>cat-nest-common-validate</module>
-        <module>cat-nest-common-auth</module>
-    </modules>
-
-    <packaging>pom</packaging>
+    <artifactId>cat-nest-common-auth</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
