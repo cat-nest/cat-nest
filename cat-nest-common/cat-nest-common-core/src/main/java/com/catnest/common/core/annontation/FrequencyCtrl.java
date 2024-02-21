@@ -1,4 +1,4 @@
-package com.catnest.starter.annontation;
+package com.catnest.common.core.annontation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

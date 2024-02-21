@@ -1,6 +1,6 @@
-package com.catnest.starter.aspect;
+package com.catnest.common.core.aspect;
 
-import com.catnest.starter.annontation.FrequencyCtrl;
+import com.catnest.common.core.annontation.FrequencyCtrl;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

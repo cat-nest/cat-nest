@@ -13,7 +13,6 @@
         - cat-nest-file
         - cat-nest-system
         - cat-nest-user
-    - cat-nest-spring-starter
 ```
 
 cat-nest-coomon 中主要开发可复用的公共组件 </br>

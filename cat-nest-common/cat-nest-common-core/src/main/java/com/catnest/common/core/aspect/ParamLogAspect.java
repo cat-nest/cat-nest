@@ -1,8 +1,8 @@
-package com.catnest.starter.aspect;
+package com.catnest.common.core.aspect;
 
 
+import com.catnest.common.core.annontation.ParamLog;
 import com.catnest.common.core.utils.CollectionUtil;
-import com.catnest.starter.annontation.ParamLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

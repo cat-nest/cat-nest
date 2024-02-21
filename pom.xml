@@ -13,7 +13,6 @@
         <module>cat-nest-gateway</module>
         <module>cat-nest-modules</module>
         <module>cat-nest-common</module>
-        <module>cat-nest-spring-starter</module>
     </modules>
 
     <properties>

@@ -1,9 +1,9 @@
-package com.catnest.starter.config;
+package com.catnest.common.core.config;
 
 
-import com.catnest.starter.SpringContextUtil;
-import com.catnest.starter.aspect.FrequencyAspect;
-import com.catnest.starter.aspect.ParamLogAspect;
+import com.catnest.common.core.aspect.FrequencyAspect;
+import com.catnest.common.core.aspect.ParamLogAspect;
+import com.catnest.common.core.utils.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

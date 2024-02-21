@@ -1,8 +1,9 @@
-package com.catnest.starter.config;
+package com.catnest.common.core.config;
 
 
-import com.catnest.starter.interceptor.TraceIdInterceptor;
+import com.catnest.common.core.interceptor.TraceIdInterceptor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,11 +13,12 @@ import javax.annotation.PostConstruct;
 
 @Slf4j
 @Configuration
+@ConditionalOnProperty(prefix = "cat-nest.core", name = "enable-traceId", havingValue = "true")
 public class CatNestWebMvcConfig implements WebMvcConfigurer {
 
 
     @Bean
-    public TraceIdInterceptor traceIdInterceptor(){
+    public TraceIdInterceptor traceIdInterceptor() {
         return new TraceIdInterceptor();
     }
 

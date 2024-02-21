@@ -1,8 +1,8 @@
 package com.catnest.system.serivce;
 
 
+import com.catnest.common.core.annontation.ParamLog;
 import com.catnest.common.core.domain.ApiResponse;
-import com.catnest.starter.annontation.ParamLog;
 import com.catnest.system.domain.CatNestRecord;
 import com.catnest.system.domain.dto.CatNestBuildDTO;
 import com.catnest.system.domain.dto.JoinDTO;

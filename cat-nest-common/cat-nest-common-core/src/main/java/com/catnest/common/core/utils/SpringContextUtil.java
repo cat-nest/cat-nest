@@ -1,4 +1,4 @@
-package com.catnest.starter;
+package com.catnest.common.core.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;

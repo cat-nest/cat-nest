@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.catnest.starter.config.CatNestAutoConfig,\
-  com.catnest.starter.config.CatNestWebMvcConfig

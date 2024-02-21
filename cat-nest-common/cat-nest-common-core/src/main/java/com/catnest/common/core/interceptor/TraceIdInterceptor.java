@@ -1,4 +1,4 @@
-package com.catnest.starter.interceptor;
+package com.catnest.common.core.interceptor;
 
 import com.catnest.common.core.constant.StrConstant;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +17,5 @@ public class TraceIdInterceptor implements HandlerInterceptor {
         MDC.put(StrConstant.TRACE_ID, traceId);
         return true;
     }
-
 
 }
