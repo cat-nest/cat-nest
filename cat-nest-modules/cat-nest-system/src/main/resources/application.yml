@@ -31,5 +31,8 @@ spring:
 cat-nest:
   datasource:
     securityKey: 12345678habcdefg
+  core:
+    enable-traceId: true
+
 
 
